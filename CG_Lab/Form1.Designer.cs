@@ -87,6 +87,7 @@
             // 
             // numericUpDown1
             // 
+            numericUpDown1.DecimalPlaces = 3;
             numericUpDown1.Location = new Point(838, 9);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(120, 23);
@@ -96,7 +97,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(776, 72);
+            label2.Location = new Point(768, 53);
             label2.Name = "label2";
             label2.Size = new Size(95, 15);
             label2.TabIndex = 3;
@@ -105,7 +106,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(778, 169);
+            label3.Location = new Point(771, 123);
             label3.Name = "label3";
             label3.Size = new Size(82, 15);
             label3.TabIndex = 4;
@@ -114,7 +115,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(778, 265);
+            label4.Location = new Point(776, 207);
             label4.Name = "label4";
             label4.Size = new Size(103, 15);
             label4.TabIndex = 5;
@@ -122,7 +123,7 @@
             // 
             // numericUpDown2
             // 
-            numericUpDown2.Location = new Point(793, 107);
+            numericUpDown2.Location = new Point(791, 83);
             numericUpDown2.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDown2.Minimum = new decimal(new int[] { 10000, 0, 0, int.MinValue });
             numericUpDown2.Name = "numericUpDown2";
@@ -131,7 +132,7 @@
             // 
             // numericUpDown3
             // 
-            numericUpDown3.Location = new Point(945, 107);
+            numericUpDown3.Location = new Point(943, 83);
             numericUpDown3.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDown3.Minimum = new decimal(new int[] { 10000, 0, 0, int.MinValue });
             numericUpDown3.Name = "numericUpDown3";
@@ -140,7 +141,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(1083, 106);
+            button2.Location = new Point(1081, 82);
             button2.Name = "button2";
             button2.Size = new Size(79, 23);
             button2.TabIndex = 8;
@@ -150,7 +151,7 @@
             // 
             // numericUpDown4
             // 
-            numericUpDown4.Location = new Point(793, 200);
+            numericUpDown4.Location = new Point(786, 154);
             numericUpDown4.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDown4.Minimum = new decimal(new int[] { 10000, 0, 0, int.MinValue });
             numericUpDown4.Name = "numericUpDown4";
@@ -159,7 +160,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(991, 200);
+            button3.Location = new Point(984, 154);
             button3.Name = "button3";
             button3.Size = new Size(79, 23);
             button3.TabIndex = 10;
@@ -169,7 +170,8 @@
             // 
             // numericUpDown5
             // 
-            numericUpDown5.Location = new Point(796, 297);
+            numericUpDown5.DecimalPlaces = 3;
+            numericUpDown5.Location = new Point(794, 239);
             numericUpDown5.Name = "numericUpDown5";
             numericUpDown5.Size = new Size(120, 23);
             numericUpDown5.TabIndex = 11;
@@ -178,7 +180,8 @@
             // 
             // numericUpDown6
             // 
-            numericUpDown6.Location = new Point(931, 297);
+            numericUpDown6.DecimalPlaces = 3;
+            numericUpDown6.Location = new Point(929, 239);
             numericUpDown6.Name = "numericUpDown6";
             numericUpDown6.Size = new Size(120, 23);
             numericUpDown6.TabIndex = 12;
@@ -187,7 +190,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(1083, 295);
+            button4.Location = new Point(1081, 237);
             button4.Name = "button4";
             button4.Size = new Size(79, 23);
             button4.TabIndex = 13;
@@ -198,7 +201,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(796, 323);
+            label5.Location = new Point(794, 265);
             label5.Name = "label5";
             label5.Size = new Size(31, 15);
             label5.TabIndex = 14;
@@ -207,7 +210,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(931, 323);
+            label6.Location = new Point(929, 265);
             label6.Name = "label6";
             label6.Size = new Size(31, 15);
             label6.TabIndex = 15;
@@ -216,18 +219,18 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(798, 350);
+            checkBox1.Location = new Point(796, 292);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(163, 19);
+            checkBox1.Size = new Size(150, 19);
             checkBox1.TabIndex = 16;
-            checkBox1.Text = "Сохранить соотношение";
+            checkBox1.Text = "Сохранить пропорции";
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(915, 204);
+            label7.Location = new Point(908, 158);
             label7.Name = "label7";
             label7.Size = new Size(56, 15);
             label7.TabIndex = 17;
@@ -258,7 +261,7 @@
             Controls.Add(numericUpDown1);
             Controls.Add(drawingBoard);
             Name = "Form1";
-            Text = "Form1";
+            Text = "2D отрисовка";
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();

@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="CG_Lab/CG_Lab.csproj" />
+  <Project Path="CG_Lab_3D/CG_Lab_3D.csproj" Id="06d3ae4f-d954-4f15-8bc5-7b483d5aa373" />
 </Solution>
