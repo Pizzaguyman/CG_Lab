@@ -58,8 +58,10 @@
             label13 = new Label();
             resizeZVal = new NumericUpDown();
             panel1 = new Panel();
-            radioButton1 = new RadioButton();
+            numericUpDown2 = new NumericUpDown();
+            label14 = new Label();
             radioButton2 = new RadioButton();
+            radioButton1 = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)moveXVal).BeginInit();
             ((System.ComponentModel.ISupportInitialize)moveYVal).BeginInit();
@@ -71,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)turnZVal).BeginInit();
             ((System.ComponentModel.ISupportInitialize)resizeZVal).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             SuspendLayout();
             // 
             // drawingBoard
@@ -341,37 +344,63 @@
             resizeZVal.Size = new Size(120, 23);
             resizeZVal.TabIndex = 26;
             resizeZVal.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            resizeZVal.ValueChanged += resizeZVal_ValueChanged;
             // 
             // panel1
             // 
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(numericUpDown2);
+            panel1.Controls.Add(label14);
             panel1.Controls.Add(radioButton2);
             panel1.Controls.Add(radioButton1);
             panel1.Location = new Point(759, 435);
             panel1.Name = "panel1";
-            panel1.Size = new Size(416, 92);
+            panel1.Size = new Size(416, 116);
             panel1.TabIndex = 28;
             // 
-            // radioButton1
+            // numericUpDown2
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(23, 29);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(94, 19);
-            radioButton1.TabIndex = 0;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "radioButton1";
-            radioButton1.UseVisualStyleBackColor = true;
+            numericUpDown2.Location = new Point(244, 75);
+            numericUpDown2.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericUpDown2.Minimum = new decimal(new int[] { 1000, 0, 0, int.MinValue });
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(120, 23);
+            numericUpDown2.TabIndex = 3;
+            numericUpDown2.Value = new decimal(new int[] { 100, 0, 0, 0 });
+            numericUpDown2.ValueChanged += numericUpDown2_ValueChanged;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(9, 12);
+            label14.Name = "label14";
+            label14.Size = new Size(222, 15);
+            label14.TabIndex = 2;
+            label14.Text = "Выберите метод построения проекции";
             // 
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(147, 30);
+            radioButton2.Location = new Point(261, 42);
             radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(94, 19);
+            radioButton2.Size = new Size(101, 19);
             radioButton2.TabIndex = 1;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "radioButton2";
+            radioButton2.Text = "Центральный";
             radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
+            // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.Checked = true;
+            radioButton1.Location = new Point(56, 42);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(114, 19);
+            radioButton1.TabIndex = 0;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "Ортогональный";
+            radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // Form1
             // 
@@ -422,6 +451,7 @@
             ((System.ComponentModel.ISupportInitialize)resizeZVal).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -460,5 +490,7 @@
         private Panel panel1;
         private RadioButton radioButton2;
         private RadioButton radioButton1;
+        private Label label14;
+        private NumericUpDown numericUpDown2;
     }
 }

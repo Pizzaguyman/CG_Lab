@@ -312,6 +312,7 @@ namespace CG_Lab_3D
             }
         }
         private bool shouldSaveRatio = false;
+        private bool isCentralProj = false;
         public Form1()
         {
             InitializeComponent();
@@ -346,13 +347,37 @@ namespace CG_Lab_3D
                 Graphics g = e.Graphics;
                 Pen pen = new Pen(Color.Black, 2);
                 Point startingPoint = drawingBoard.Location + drawingBoard.Size / 2;
-                for (int i = 0; i < vectorMap.GetLength(0); i++)
+                if (!isCentralProj)
                 {
-                    int x1 = (int)(startingPoint.X + compPixelCoords[vectorMap[i, 0] - 1, 0]);
-                    int y1 = (int)(startingPoint.Y - compPixelCoords[vectorMap[i, 0] - 1, 1]);
-                    int x2 = (int)(startingPoint.X + compPixelCoords[vectorMap[i, 1] - 1, 0]);
-                    int y2 = (int)(startingPoint.Y - compPixelCoords[vectorMap[i, 1] - 1, 1]);
-                    g.DrawLine(pen, x1, y1, x2, y2);
+                    for (int i = 0; i < vectorMap.GetLength(0); i++)
+                    {
+                        int x1 = (int)(startingPoint.X + compPixelCoords[vectorMap[i, 0] - 1, 0]);
+                        int y1 = (int)(startingPoint.Y - compPixelCoords[vectorMap[i, 0] - 1, 1]);
+                        int x2 = (int)(startingPoint.X + compPixelCoords[vectorMap[i, 1] - 1, 0]);
+                        int y2 = (int)(startingPoint.Y - compPixelCoords[vectorMap[i, 1] - 1, 1]);
+                        g.DrawLine(pen, x1, y1, x2, y2);
+                    }
+                }
+                else
+                {
+                    double cameraZ = (double)numericUpDown2.Value;
+                    double[,] res = MultiplyMatrixes(compPixelCoords, new double[,]{
+                        {1, 0, 0, 0},
+                        {0, 1, 0, 0},
+                        {0, 0, 0, -1/cameraZ},
+                        {0, 0, 0, 1}
+                    });
+                    for (int i = 0; i < res.GetLength(0); i++)
+                        for (int j = 0; j < res.GetLength(1); j++)
+                            res[i, j] /= res[i, 3];
+                    for (int i = 0; i < vectorMap.GetLength(0); i++)
+                    {
+                        int x1 = (int)(startingPoint.X + res[vectorMap[i, 0] - 1, 0]);
+                        int y1 = (int)(startingPoint.Y - res[vectorMap[i, 0] - 1, 1]);
+                        int x2 = (int)(startingPoint.X + res[vectorMap[i, 1] - 1, 0]);
+                        int y2 = (int)(startingPoint.Y - res[vectorMap[i, 1] - 1, 1]);
+                        g.DrawLine(pen, x1, y1, x2, y2);
+                    }
                 }
             }
         }
@@ -452,7 +477,7 @@ namespace CG_Lab_3D
 
         private void numericUpDown5_ValueChanged(object sender, EventArgs e)
         {
-            if (shouldSaveRatio) resizeYVal.Value = resizeXVal.Value;
+            if (shouldSaveRatio) { resizeYVal.Value = resizeXVal.Value; resizeZVal.Value = resizeXVal.Value; }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -463,7 +488,29 @@ namespace CG_Lab_3D
 
         private void numericUpDown6_ValueChanged(object sender, EventArgs e)
         {
-            if (shouldSaveRatio) resizeXVal.Value = resizeYVal.Value;
+            if (shouldSaveRatio) { resizeXVal.Value = resizeYVal.Value; resizeZVal.Value = resizeYVal.Value; }
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            isCentralProj = true;
+            drawingBoard.Invalidate();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            isCentralProj = false;
+            drawingBoard.Invalidate();
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            drawingBoard.Invalidate();
+        }
+
+        private void resizeZVal_ValueChanged(object sender, EventArgs e)
+        {
+            if (shouldSaveRatio) { resizeXVal.Value = resizeZVal.Value; resizeYVal.Value = resizeZVal.Value; }
         }
     }
 }
